@@ -1,0 +1,3 @@
+{
+  "/puck/[...puckPath]/page": "app/puck/[...puckPath]/page.js"
+}

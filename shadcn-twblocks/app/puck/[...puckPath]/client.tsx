@@ -2,19 +2,25 @@
 
 import type { Data } from "@measured/puck";
 import { Puck } from "@measured/puck";
-import config from "../../../config";
+import { createAiPlugin } from "@puckeditor/plugin-ai";
+import config, { EditorModeProvider } from "@/config";
+
+const aiPlugin = createAiPlugin();
 
 export function Client({ path, data }: { path: string; data: Partial<Data> }) {
   return (
-    <Puck
-      config={config}
-      data={data}
-      onPublish={async (data) => {
-        await fetch("/puck/api", {
-          method: "post",
-          body: JSON.stringify({ data, path }),
-        });
-      }}
-    />
+    <EditorModeProvider>
+      <Puck
+        config={config}
+        data={data}
+        onPublish={async (data) => {
+          await fetch("/puck/api", {
+            method: "post",
+            body: JSON.stringify({ data, path }),
+          });
+        }}
+        plugins={[aiPlugin]}
+      />
+    </EditorModeProvider>
   );
 }

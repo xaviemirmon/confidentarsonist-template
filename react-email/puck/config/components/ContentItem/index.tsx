@@ -5,11 +5,11 @@ import cardField, {
   resolveCardFields,
 } from "@/puck/config/fields/card";
 
-import Card, { CardProps } from "./Card";
+import ContentItem, { ContentItemProps } from "./ContentItem";
 
-export type { CardProps };
+export type { ContentItemProps  };
 
-const cardConfig: ComponentConfig<CardProps> = {
+const contentItemConfig: ComponentConfig<ContentItemProps> = {
   ai: {
     instructions:
       "A card component for emails. use it to display a summary of content and a link to it. you can use this to display products, articles, or any other type of content. the featured variant makes it more prominent, so use it to highlight important content.",
@@ -19,7 +19,7 @@ const cardConfig: ComponentConfig<CardProps> = {
     return resolveCardFields(data.props, { fields: params.fields });
   },
   defaultProps: defaultCardProps,
-  render: Card,
+  render: ContentItem,
 };
 
-export default cardConfig;
+export default contentItemConfig;

@@ -2,7 +2,7 @@ import CardInternal, { CardType, CardVariant } from "@/puck/components/card";
 import { LinkFieldProps } from "@/puck/config/fields/link";
 import { ImageFieldProps } from "@/puck/config/fields/image";
 
-export type CardProps = {
+export type ContentItemProps = {
   type: CardType;
   image: ImageFieldProps;
   title: string;
@@ -13,7 +13,7 @@ export type CardProps = {
   variant: CardVariant;
 };
 
-const Card = (props: CardProps) => {
+const ContentItem = (props: ContentItemProps) => {
   return (
     <CardInternal
       type={props.type}
@@ -32,4 +32,4 @@ const Card = (props: CardProps) => {
   );
 };
 
-export default Card;
+export default ContentItem;

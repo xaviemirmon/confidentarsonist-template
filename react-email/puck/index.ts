@@ -7,7 +7,9 @@ import Heading, { HeadingProps } from "@/puck/config/components/Heading";
 import Text, { TextProps } from "@/puck/config/components/Text";
 import BentoGrid, { BentoGridProps } from "@/puck/config/components/BentoGrid";
 import CardsGrid, { CardsGridProps } from "@/puck/config/components/CardsGrid";
-import Card, { CardProps } from "@/puck/config/components/Card";
+import ContentItem, {
+  ContentItemProps,
+} from "@/puck/config/components/ContentItem";
 import FeatureList, {
   FeatureListProps,
 } from "@/puck/config/components/FeatureList";
@@ -26,7 +28,7 @@ export type Props = {
   Text: TextProps;
   BentoGrid: BentoGridProps;
   CardsGrid: CardsGridProps;
-  Card: CardProps;
+  ContentItem: ContentItemProps;
   FeatureList: FeatureListProps;
   Pricing: PricingProps;
   PricingTier: PricingTierProps;
@@ -52,7 +54,7 @@ const conf: Config = {
         "Text",
         "BentoGrid",
         "CardsGrid",
-        "Card",
+        "ContentItem",
         "FeatureList",
       ],
     },
@@ -67,7 +69,7 @@ const conf: Config = {
     Text,
     BentoGrid,
     CardsGrid,
-    Card,
+    ContentItem,
     Pricing,
     PricingTier,
     ShoppingCart,

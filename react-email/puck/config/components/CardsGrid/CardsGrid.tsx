@@ -1,18 +1,18 @@
-import { SlotComponent } from "@measured/puck";
+import { PropsWithChildren } from "react";
 import { Column, Row } from "@react-email/components";
 
 import { SectionTextFieldProps } from "@/puck/config/fields/section-text";
+import { CardFieldProps } from "@/puck/config/fields/card";
 import ContentSection from "@/puck/components/content-section";
+import Card from "@/puck/components/card";
 
 export type CardsGridProps = {
-  numberColumns: number;
-  columns: { content: SlotComponent }[];
+  cards: CardFieldProps[];
 } & SectionTextFieldProps;
 
-const CardsGrid = ({ tag, title, description, columns }: CardsGridProps) => {
-  const columnElements = columns?.map(({ content: Content }, index) => (
+const CardGridColumn = ({ children }: PropsWithChildren) => {
+  return (
     <Column
-      key={index}
       style={{
         width: "50%",
         paddingRight: 4,
@@ -20,13 +20,33 @@ const CardsGrid = ({ tag, title, description, columns }: CardsGridProps) => {
         verticalAlign: "top",
       }}
     >
-      <Content />
+      {children}
     </Column>
-  ));
+  );
+};
+
+const CardsGrid = ({ tag, title, description, cards }: CardsGridProps) => {
+  const renderedCards = [];
+  let currRow = [];
+
+  cards.forEach((card, index) => {
+    currRow.push(
+      <CardGridColumn key={index}>
+        <Card {...card} />
+      </CardGridColumn>
+    );
+
+    // Breaking point or last card (in which case we are in last row)
+    if ((index + 1) % 2 === 0 || index === cards.length - 1) {
+      renderedCards.push(<Row key={index}>{currRow}</Row>);
+      currRow = [];
+      return;
+    }
+  });
 
   return (
     <ContentSection tag={tag} title={title} description={description}>
-      <Row>{columnElements}</Row>
+      {renderedCards}
     </ContentSection>
   );
 };

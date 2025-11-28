@@ -3,63 +3,35 @@ import { ComponentConfig, Slot } from "@measured/puck";
 import sectionTextField, {
   defaultSectionTextValue,
 } from "@/puck/config/fields/section-text";
-import { CardProps, defaultCardProps } from "@/puck/config/components/Card";
 
-import CardsGrid, {
-  CardsGridProps as CardsGridPropsComponentSlots,
-} from "./CardsGrid";
-
-type CardsGridProps = { columns: { content: Slot }[] } & Omit<
-  CardsGridPropsComponentSlots,
-  "columns"
->;
+import CardsGrid, { CardsGridProps } from "./CardsGrid";
+import cardField, { defaultCardProps } from "../../fields/card";
 
 export type { CardsGridProps };
 
-const defaultInlineCard: CardProps = { ...defaultCardProps, variant: "inline" };
-
 const cardsGridConfig: ComponentConfig<CardsGridProps> = {
+  ai: {
+    instructions: "displays a grid with two columns containing the cards.",
+  },
   fields: {
     ...sectionTextField.objectFields,
-    numberColumns: { type: "number", min: 1, max: 2 },
-    columns: {
+    cards: {
+      ai: {
+        instructions:
+          "always add 2 or 4 cards. only use the inline variant. always use the same type of cards for each grid.",
+      },
       type: "array",
       min: 1,
-      max: 2,
+      max: 4,
       arrayFields: {
-        content: { type: "slot", allow: ["Card"], ai: { stream: false } },
+        ...cardField.objectFields,
       },
-      visible: false,
-      ai: { stream: false },
+      defaultItemProps: defaultCardProps,
     },
-  },
-  resolveData: (data, params) => {
-    if (!params.changed.numberColumns) {
-      return data;
-    }
-
-    const lastCols = params.lastData?.props.columns ?? [];
-    const currNumberCols = data.props.numberColumns;
-
-    const newColumns = Array.from({ length: currNumberCols }, (_, i) =>
-      lastCols[i] ? { ...lastCols[i] } : { content: [] },
-    );
-
-    return {
-      ...data,
-      props: {
-        ...data.props,
-        columns: newColumns,
-      },
-    };
   },
   defaultProps: {
     ...defaultSectionTextValue,
-    numberColumns: 2,
-    columns: [
-      { content: [{ type: "Card", props: defaultInlineCard }] },
-      { content: [{ type: "Card", props: defaultInlineCard }] },
-    ],
+    cards: [defaultCardProps, defaultCardProps],
   },
   render: CardsGrid,
 };

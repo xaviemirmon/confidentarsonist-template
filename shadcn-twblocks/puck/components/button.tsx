@@ -1,9 +1,5 @@
 import { DynamicIcon } from "lucide-react/dynamic";
-import {
-  Button,
-  ButtonProps,
-  buttonVariants,
-} from "@/components/ui/button";
+import { Button, ButtonProps, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { IconName } from "@/puck/types";
 import { useIsEditorMode } from "@/puck/context/is-editor-mode-context";
@@ -44,7 +40,7 @@ export const CompoundButton = (props: CompoundButtonProps) => {
         className={cn(
           buttonVariants({ variant: props.variant, size: props.size }),
           "gap-4",
-          props.className
+          props.className,
         )}
       >
         {content}

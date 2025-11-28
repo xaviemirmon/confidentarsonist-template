@@ -1,13 +1,13 @@
 export type CreateSummaryFunc = <T>(
   getItemLabel: (item: T) => string,
   defaultLabel?: string,
-  maxLength?: number
+  maxLength?: number,
 ) => (item: T, index?: number) => string;
 
 const createSummaryFunc: CreateSummaryFunc = (
   getItemLabel,
   defaultLabel = "Item",
-  maxLength = 12
+  maxLength = 12,
 ) => {
   return (item) => {
     const res = getItemLabel(item);

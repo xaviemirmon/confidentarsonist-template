@@ -2,10 +2,7 @@ import {
   CompoundContainer,
   CompoundContainerProps,
 } from "@/puck/components/container";
-import {
-  CompoundButton,
-  CompoundButtonProps,
-} from "@/puck/components/button";
+import { CompoundButton, CompoundButtonProps } from "@/puck/components/button";
 import { PuckComponent, Slot } from "@measured/puck";
 
 export interface ArticlesProps {

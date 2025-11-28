@@ -1,10 +1,5 @@
 import { ComponentConfig } from "@measured/puck";
-import {
-  cards,
-  image,
-  image16x9Placeholder,
-  card,
-} from "@/puck/config/fields";
+import { cards, image, image16x9Placeholder, card } from "@/puck/config/fields";
 import { ArticleCard } from "./article-card";
 import { CompoundArticleCardProps } from "@/puck/components/article-card";
 

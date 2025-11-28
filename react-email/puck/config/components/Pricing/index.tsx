@@ -21,7 +21,7 @@ const defaultTiers: PricingTierProps[] = Array.from(
   (_item, index) => ({
     ...defaultTier,
     highlighted: index % 2 === 1 ? true : false,
-  })
+  }),
 );
 
 const pricingConfig: ComponentConfig<PricingProps> = {

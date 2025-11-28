@@ -1,12 +1,6 @@
 import { cn } from "@/lib/utils";
-import {
-  CompoundBadge,
-  CompoundBadgeProps,
-} from "@/puck/components/badge";
-import {
-  CompoundButton,
-  CompoundButtonProps,
-} from "@/puck/components/button";
+import { CompoundBadge, CompoundBadgeProps } from "@/puck/components/badge";
+import { CompoundButton, CompoundButtonProps } from "@/puck/components/button";
 import { Feature } from "@/puck/types";
 import { DynamicIcon } from "lucide-react/dynamic";
 
@@ -58,7 +52,7 @@ export const CompoundContent = ({
           "gap-4": spacing === "tight",
         },
         colPositionClassNames,
-        className
+        className,
       )}
     >
       {!!heading || !!description || !!badge || !!features ? (
@@ -82,7 +76,7 @@ export const CompoundContent = ({
               <h2
                 className={cn(
                   "text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-regular",
-                  textAlignClassnames
+                  textAlignClassnames,
                 )}
               >
                 {heading}
@@ -97,7 +91,7 @@ export const CompoundContent = ({
                       alignContent === "start" || alignContent === "end",
                     "lg:max-w-xl": alignContent === "center",
                   },
-                  textAlignClassnames
+                  textAlignClassnames,
                 )}
               >
                 {description}

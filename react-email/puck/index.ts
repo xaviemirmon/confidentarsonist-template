@@ -8,9 +8,13 @@ import Text, { TextProps } from "@/puck/config/components/Text";
 import BentoGrid, { BentoGridProps } from "@/puck/config/components/BentoGrid";
 import CardsGrid, { CardsGridProps } from "@/puck/config/components/CardsGrid";
 import Card, { CardProps } from "@/puck/config/components/Card";
-import FeatureList, { FeatureListProps } from "@/puck/config/components/FeatureList";
+import FeatureList, {
+  FeatureListProps,
+} from "@/puck/config/components/FeatureList";
 import Pricing, { PricingProps } from "@/puck/config/components/Pricing";
-import PricingTier, { PricingTierProps } from "@/puck/config/components/PricingTier";
+import PricingTier, {
+  PricingTierProps,
+} from "@/puck/config/components/PricingTier";
 import ShoppingCart, {
   ShoppingCartProps,
 } from "@/puck/config/components/ShoppingCart";

@@ -7,10 +7,7 @@ import {
   CompoundContent,
   CompoundContentProps,
 } from "@/puck/components/content";
-import {
-  CompoundCard,
-  CompoundCardProps,
-} from "@/puck/components/card";
+import { CompoundCard, CompoundCardProps } from "@/puck/components/card";
 
 export interface BentoProps extends CompoundContentProps {
   padding?: CompoundContainerProps["padding"];

@@ -14,7 +14,7 @@ export const defaultWidthValue: WidthFieldProps = {
 
 export const resolveWidthValue: FieldResolver<WidthFieldProps> = (
   fieldProps,
-  fields
+  fields,
 ) => {
   if (!fieldProps.fullWidth) {
     return {

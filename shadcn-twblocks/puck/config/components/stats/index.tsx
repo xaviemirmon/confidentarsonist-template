@@ -1,9 +1,5 @@
 import { ComponentConfig } from "@measured/puck";
-import {
-  padding,
-  paddingDefaults,
-  contentFields,
-} from "@/puck/config/fields";
+import { padding, paddingDefaults, contentFields } from "@/puck/config/fields";
 
 import { Stats, StatsProps } from "./stats";
 

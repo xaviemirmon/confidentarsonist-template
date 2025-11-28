@@ -1,9 +1,6 @@
 import { ComponentConfig } from "@measured/puck";
 import { Footer, FooterProps } from "./footer";
-import {
-  padding,
-  paddingDefaults,
-} from "@/puck/config/fields";
+import { padding, paddingDefaults } from "@/puck/config/fields";
 
 export type { FooterProps };
 

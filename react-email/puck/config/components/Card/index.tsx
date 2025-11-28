@@ -1,9 +1,7 @@
 import { ComponentConfig } from "@measured/puck";
 
 import imageField from "@/puck/config/fields/image";
-import linkField, {
-  defaultLinkValue,
-} from "@/puck/config/fields/link";
+import linkField, { defaultLinkValue } from "@/puck/config/fields/link";
 
 import Card, { CardProps, cardTypes, cardVariants } from "./Card";
 

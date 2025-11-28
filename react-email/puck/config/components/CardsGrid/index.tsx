@@ -3,10 +3,7 @@ import { ComponentConfig, Slot } from "@measured/puck";
 import sectionTextField, {
   defaultSectionTextValue,
 } from "@/puck/config/fields/section-text";
-import {
-  CardProps,
-  defaultCardProps,
-} from "@/puck/config/components/Card";
+import { CardProps, defaultCardProps } from "@/puck/config/components/Card";
 
 import CardsGrid, {
   CardsGridProps as CardsGridPropsComponentSlots,
@@ -45,7 +42,7 @@ const cardsGridConfig: ComponentConfig<CardsGridProps> = {
     const currNumberCols = data.props.numberColumns;
 
     const newColumns = Array.from({ length: currNumberCols }, (_, i) =>
-      lastCols[i] ? { ...lastCols[i] } : { content: [] }
+      lastCols[i] ? { ...lastCols[i] } : { content: [] },
     );
 
     return {

@@ -5,10 +5,7 @@ import {
   FormMethods,
   formMethods,
 } from "@/puck/components/form";
-import {
-  CompoundFieldProps,
-  fieldTypes,
-} from "@/puck/components/field";
+import { CompoundFieldProps, fieldTypes } from "@/puck/components/field";
 
 export const icon = {
   type: "select",
@@ -100,10 +97,10 @@ export const image = {
 
 export const getPlaceholderImageUrl = (
   size: string,
-  text = "Placeholder Image"
+  text = "Placeholder Image",
 ) =>
   `https://dummyimage.com/${size}/f5f4f4/101010.png&text=${encodeURIComponent(
-    text
+    text,
   )}`;
 
 export const image16x9Placeholder = {

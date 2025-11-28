@@ -1,10 +1,7 @@
 import { DynamicIcon } from "lucide-react/dynamic";
 import { IconName } from "@/puck/types";
 import { cn } from "@/lib/utils";
-import {
-  CompoundButton,
-  CompoundButtonProps,
-} from "@/puck/components/button";
+import { CompoundButton, CompoundButtonProps } from "@/puck/components/button";
 
 export interface CompoundCardProps {
   icon?: IconName;
@@ -31,7 +28,7 @@ export const CompoundCard = ({
           "justify-between": hasIcon,
           "justify-end": !hasIcon,
         },
-        className
+        className,
       )}
     >
       {hasIcon ? <DynamicIcon name={icon} className="w-4 h-4" /> : null}

@@ -16,10 +16,7 @@ import {
   CompoundContentProps,
 } from "@/puck/components/content";
 
-import {
-  CompoundImage,
-  CompoundImageProps,
-} from "@/puck/components/image";
+import { CompoundImage, CompoundImageProps } from "@/puck/components/image";
 
 type ImageWithAspectRatio = CompoundImageProps & {
   aspectRatio?: "16x9" | "1x1";
@@ -106,7 +103,7 @@ const ColumnImage = (props: ImageWithAspectRatio & { className?: string }) => (
         "aspect-video h-full": props.aspectRatio === "16x9",
         "aspect-square": props.aspectRatio === "1x1",
       },
-      props.className
+      props.className,
     )}
   >
     <CompoundImage src={props.src} alt={props.alt} className="h-full" />

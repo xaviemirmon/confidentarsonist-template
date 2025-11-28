@@ -1,11 +1,7 @@
 import { ComponentConfig } from "@measured/puck";
 
-import linkField, {
-  defaultLinkValue,
-} from "@/puck/config/fields/link";
-import logoField, {
-  defaultLogoValue,
-} from "@/puck/config/fields/logo";
+import linkField, { defaultLinkValue } from "@/puck/config/fields/link";
+import logoField, { defaultLogoValue } from "@/puck/config/fields/logo";
 import createSummaryFunc from "@/puck/lib/create-summary-func";
 
 import Footer, { FooterProps, footerVariants } from "./Footer";

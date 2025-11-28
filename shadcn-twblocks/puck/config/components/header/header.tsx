@@ -12,10 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu, MoveRight, X } from "lucide-react";
 import { registerOverlayPortal } from "@measured/puck";
-import {
-  CompoundButton,
-  CompoundButtonProps,
-} from "@/puck/components/button";
+import { CompoundButton, CompoundButtonProps } from "@/puck/components/button";
 import { ErrorBoundary } from "@/puck/components/error-boundary";
 
 type NavigationLink = { label: string };

@@ -1,11 +1,7 @@
 import { ComponentConfig } from "@measured/puck";
 
-import linkField, {
-  defaultLinkValue,
-} from "@/puck/config/fields/link";
-import imageField, {
-  defaultImageValue,
-} from "@/puck/config/fields/image";
+import linkField, { defaultLinkValue } from "@/puck/config/fields/link";
+import imageField, { defaultImageValue } from "@/puck/config/fields/image";
 import createSummaryFunc from "@/puck/lib/create-summary-func";
 
 import BentoGrid, { BentoGridProps } from "./BentoGrid";

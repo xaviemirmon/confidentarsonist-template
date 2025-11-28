@@ -3,7 +3,7 @@
 import type { Data } from "@measured/puck";
 import { Puck } from "@measured/puck";
 import { createAiPlugin } from "@puckeditor/plugin-ai";
-import config, { EditorModeProvider } from "@/config";
+import config, { EditorModeProvider } from "@/puck";
 
 const aiPlugin = createAiPlugin();
 

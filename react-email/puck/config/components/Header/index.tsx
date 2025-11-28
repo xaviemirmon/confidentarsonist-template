@@ -11,6 +11,9 @@ export type { HeaderProps };
 const defaultLinks = Array.from({ length: 3 }, () => defaultLinkValue);
 
 const headerConfig: ComponentConfig<{ props: HeaderProps }> = {
+  ai: {
+    instructions: "Always put this at the top of the email",
+  },
   fields: {
     logo: logoField,
     links: {

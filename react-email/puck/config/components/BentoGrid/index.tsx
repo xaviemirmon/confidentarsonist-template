@@ -9,6 +9,10 @@ import BentoGrid, { BentoGridProps } from "./BentoGrid";
 export type { BentoGridProps };
 
 const bentoGrid: ComponentConfig<{ props: BentoGridProps }> = {
+  ai: {
+    instructions:
+      "A bento grid component for emails, it shows a main piece of content and two products. Use it to display a grid of 2 elements in a visually appealing way. Typically used to showcase items in a compact layout.",
+  },
   fields: {
     title: { type: "text", contentEditable: true },
     description: { type: "textarea", contentEditable: true },

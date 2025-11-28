@@ -15,9 +15,30 @@ export const defaultSectionTextValue: SectionTextFieldProps = {
 const sectionTextField: ObjectField<SectionTextFieldProps> = {
   type: "object",
   objectFields: {
-    tag: { type: "text", contentEditable: true },
-    title: { type: "text", contentEditable: true },
-    description: { type: "textarea", contentEditable: true },
+    tag: {
+      type: "text",
+      contentEditable: true,
+      ai: {
+        instructions:
+          "Don't use sample content unless asked explicitly by the user",
+      },
+    },
+    title: {
+      type: "text",
+      contentEditable: true,
+      ai: {
+        instructions:
+          "Don't use sample content unless asked explicitly by the user",
+      },
+    },
+    description: {
+      type: "textarea",
+      contentEditable: true,
+      ai: {
+        instructions:
+          "Don't use sample content unless asked explicitly by the user",
+      },
+    },
   },
 };
 

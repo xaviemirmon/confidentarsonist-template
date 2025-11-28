@@ -16,6 +16,9 @@ const defaultLinks: FooterProps["links"] = Array.from({ length: 3 }, () => ({
 }));
 
 const footerConfig: ComponentConfig<{ props: FooterProps }> = {
+  ai: {
+    instructions: "Always put this at the bottom of the email",
+  },
   fields: {
     logo: logoField,
     tagLine: { type: "textarea", label: "tag line", contentEditable: true },
@@ -28,6 +31,7 @@ const footerConfig: ComponentConfig<{ props: FooterProps }> = {
     },
     address: { type: "textarea", contentEditable: true },
     variant: {
+      ai: { instructions: "Always use the column variant for this" },
       type: "select",
       options: footerVariants.map((variant) => ({
         label: variant,

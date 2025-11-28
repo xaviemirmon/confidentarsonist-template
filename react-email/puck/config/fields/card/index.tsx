@@ -39,7 +39,7 @@ export const defaultCardProps: CardFieldProps = {
 
 export const resolveCardFields = (
   data: CardFieldProps,
-  params: { fields: ObjectField<CardFieldProps>["objectFields"] }
+  params: { fields: ObjectField<CardFieldProps>["objectFields"] },
 ) => {
   const newFields = { ...params.fields };
 

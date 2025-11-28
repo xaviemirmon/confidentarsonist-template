@@ -33,7 +33,7 @@ const CardsGrid = ({ tag, title, description, cards }: CardsGridProps) => {
     currRow.push(
       <CardGridColumn key={index}>
         <Card {...card} />
-      </CardGridColumn>
+      </CardGridColumn>,
     );
 
     // Breaking point or last card (in which case we are in last row)

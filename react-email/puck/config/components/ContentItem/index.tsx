@@ -7,7 +7,7 @@ import cardField, {
 
 import ContentItem, { ContentItemProps } from "./ContentItem";
 
-export type { ContentItemProps  };
+export type { ContentItemProps };
 
 const contentItemConfig: ComponentConfig<ContentItemProps> = {
   ai: {

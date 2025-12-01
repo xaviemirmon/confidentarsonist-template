@@ -24,7 +24,7 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
 
 2. Install React Email in your project:
    ```sh
-   npm install react-email/components
+   npm install @react-email/components
    ```
 
 3. Set up a `@/puck` import alias in your `tsconfig.json`:  

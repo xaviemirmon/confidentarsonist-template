@@ -48,7 +48,7 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
 
 5. Copy any component you want to use:
    - Example: copying the Header component  
-     `puck-configs/react-email/puck/config/Header` → `your-project/puck/config/Header`
+     `puck-configs/react-email/puck/config/components/Header` → `your-project/puck/config/components/Header`
 
 6. Use it in your Puck config:
    ```tsx

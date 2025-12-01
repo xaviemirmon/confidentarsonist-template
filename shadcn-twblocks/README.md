@@ -1,6 +1,6 @@
 # `shadcn` Integration Reference
 
-This application showcases how to integrate `shadcn` with Puck and Puck AI to build a page builder. It was bootstrapped with our [Next.js recipe](https://github.com/puckeditor/puck/tree/main/recipes/next), and all Puck-related code lives under the `./puck` directory.
+This application showcases how to integrate `shadcn` with Puck and Puck AI to build a page builder. It was bootstrapped with our [Next.js recipe](https://github.com/puckeditor/puck/tree/main/recipes/next), and all Puck component integration-related code lives under the `./puck` directory.
 
 You can use it to:
 

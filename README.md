@@ -29,7 +29,7 @@ We currently have references for the following component libraries:
 
 Each component library has its own subfolder. Inside, you'll find a basic app bootstrapped with our [Next.js recipe](https://github.com/puckeditor/puck/tree/main/recipes/next).
 
-All Puck-related code lives under the `./puck` directory.
+All Puck component integration-related code lives under the `./puck` directory.
 
 #### Puck Configs
 

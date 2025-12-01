@@ -19,9 +19,9 @@ We currently have references for the following component libraries:
 
 2. Clone the repository:
 
-    ```sh
-    git clone {link}
-    ```
+   ```sh
+   git clone {link}
+   ```
 
 3. Copy or move any folders/files you need into your project.
 
@@ -33,10 +33,10 @@ All Puck-related code lives under the `./puck` directory.
 
 #### Puck Configs
 
-- Main Puck config: `./puck/index.tsx`
-- Component configs: `./puck/config/components`
-- Root config: `./puck/config/root/index.tsx`
-- Reusable field configs: `./puck/config/fields`
+- Main [Puck config](https://puckeditor.com/docs/api-reference/configuration/config): `./puck/index.tsx`
+- [Component configs](https://puckeditor.com/docs/api-reference/configuration/component-config): `./puck/config/components`
+- [Root config](https://puckeditor.com/docs/integrating-puck/root-configuration): `./puck/config/root/index.tsx`
+- [Reusable field configs](https://puckeditor.com/docs/api-reference/fields): `./puck/config/fields`
 
 #### Utilities
 

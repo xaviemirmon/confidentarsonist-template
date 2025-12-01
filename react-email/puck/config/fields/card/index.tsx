@@ -32,7 +32,7 @@ export const defaultCardProps: CardFieldProps = {
   },
   tag: "Tag",
   title: "Title",
-  description: "",
+  description: "Description",
   price: "$100",
   button: { ...defaultLinkValue, label: "Read more" },
 };

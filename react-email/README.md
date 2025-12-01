@@ -40,10 +40,11 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
    }
    ```
 
-4. Copy shared components, constants, and utilities into your project:
+4. Copy shared components, constants, field configs, and utilities into your project:
    - `puck-configs/react-email/puck/components` → `your-project/puck/components`
    - `puck-configs/react-email/puck/constants` → `your-project/puck/constants`
    - `puck-configs/react-email/puck/lib` → `your-project/puck/lib`
+   - `puck-configs/react-email/puck/config/fields` → `your-project/puck/config/fields`
 
 5. Copy any component you want to use:
    - Example: copying the Header component  

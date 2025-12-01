@@ -77,7 +77,7 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
    };
    ```
 
-### Bootstrapping a New Project with shadcn
+### Bootstrapping a New Project with `shadcn`
 
 1. Clone this repository:
    ```sh

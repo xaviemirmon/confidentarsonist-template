@@ -41,9 +41,16 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
    - `puck-configs/shadcn-twblocks/puck/context` → `your-project/puck/context`
    - `puck-configs/shadcn-twblocks/puck/lib` → `your-project/puck/lib`
    - `puck-configs/shadcn-twblocks/puck/config/fields` → `your-project/puck/config/fields`
+   - `puck-configs/shadcn-twblocks/puck/config/types.ts` → `your-project/puck/config/types.ts`
 
-5. Copy the `shadcn` components:
+5. Copy the `shadcn` components and hooks:
    - `puck-configs/shadcn-twblocks/components/ui` → `your-project/components/ui`
+   - `puck-configs/shadcn-twblocks/hooks/` → `your-project/hooks`
+
+6. Install `shadcn` dependencies:
+   ```sh
+   npm install @radix-ui/react-accordion @radix-ui/react-avatar @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-navigation-menu @radix-ui/react-popover @radix-ui/react-slot motion embla-carousel-react react-error-boundary
+   ```
 
 6. Copy any Puck component config you want to use:
    - Example: copying the Header component  
@@ -52,6 +59,7 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
 7. Use it in your Puck config:
    ```tsx
    import { Puck } from "@measured/puck";
+   import { EditorModeProvider } from "@/puck/context";
    import Header from "@/puck/config/components/header";
 
    const config = {
@@ -61,7 +69,11 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
    };
 
    const Editor = () => {
-     return <Puck data={{}} config={config} />;
+     return (
+       <EditorModeProvider isEditor>
+         <Puck data={{}} config={config} />
+       </EditorModeProvider>
+     );
    };
    ```
 

@@ -1,38 +1,100 @@
-# `next` recipe
+# React Email Integration Reference
 
-The `next` recipe showcases one of the most powerful ways to implement Puck using to provide an authoring tool for any route in your Next app.
+This application showcases how to integrate React Email with Puck and Puck AI to build an email builder. It was bootstrapped with our [Next.js recipe](https://github.com/puckeditor/puck/tree/main/recipes/next) and all Puck-related code lives under the `./puck` directory.
 
-## Demonstrates
+You can use it to:
 
-- Next.js App Router implementation
-- JSON database implementation with HTTP API
-- Catch-all routes to use puck for any route on the platform
-- Incremental static regeneration (ISR) for all Puck pages
+- Get ready-to-use React Email Puck component configs for your project
+- Understand how to integrate your own components
+- Bootstrap a new project from scratch
 
-## Usage
+## Quick Start
 
-Run the generator and enter `next` when prompted
+### Using the React Email Puck Component Configs
 
-```
-npx create-puck-app my-app
-```
+You're free to copy any components you need into your project however you like. Just make sure to bring in any required dependencies and update import paths based on where you paste the files.
 
-Start the server
+Below are the steps for doing this while preserving the `./puck/` folder structure.
 
-```
-yarn dev
-```
+1. Clone this repository:
+   
+   ```sh
+   git clone {link to repo}
+   ```
 
-Navigate to the homepage at https://localhost:3000. To edit the homepage, access the Puck editor at https://localhost:3000/edit.
+2. Install React Email in your project:
+   ```sh
+   npm install react-email/components
+   ```
 
-You can do this for any route on the application, **even if the page doesn't exist**. For example, visit https://localhost:3000/hello/world and you'll receive a 404. You can author and publish a page by visiting https://localhost:3000/hello/world/edit. After publishing, go back to the original URL to see your page.
+3. Set up a `@/puck` import alias in your `tsconfig.json`:  
+   (You may need additional steps depending on your bundler)
+   ```json
+   {
+     "compilerOptions": {
+       "plugins": [{ "name": "next" }],
+       "baseUrl": ".",
+       "paths": {
+         "@/puck": ["./puck"]
+       }
+     }
+   }
+   ```
 
-## Using this recipe
+4. Copy shared components, constants, and utilities into your project:
+   - `puck-configs/react-email/puck/components` → `your-project/puck/components`
+   - `puck-configs/react-email/puck/constants` → `your-project/puck/constants`
+   - `puck-configs/react-email/puck/lib` → `your-project/puck/lib`
 
-To adopt this recipe you will need to:
+5. Copy any component you want to use:
+   - Example: copying the Header component  
+     `puck-configs/react-email/puck/config/Header` → `your-project/puck/config/Header`
 
-- **IMPORTANT** Add authentication to `/edit` routes. This can be done by modifying the example API routes in `/app/puck/api/route.ts` and server component in `/app/puck/[...puckPath]/page.tsx`. **If you don't do this, Puck will be completely public.**
-- Integrate your database into the API calls in `/app/puck/api/route.ts`
-- Implement a custom puck configuration in `puck.config.tsx`
+6. Use it in your Puck config:
+   ```tsx
+   import { Puck } from "@measured/puck";
+   import Header from "@/puck/config/components/Header";
 
-By default, this recipe will generate static pages by setting `dynamic` to [`force-static`](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamic) in the `/app/[...puckPath]/page.tsx`. This will strip headers and cookies. If you need dynamic pages, you can delete this.
+   const config = {
+     components: {
+       Header,
+     },
+   };
+
+   const Editor = () => {
+     return <Puck data={{}} config={config} />;
+   };
+   ```
+
+### Bootstrapping a New Project with React Email
+
+1. Clone this repository:
+   
+   ```sh
+   git clone {link to repo}
+   ```
+
+2. [Install pnpm](https://pnpm.io/installation#using-npm)
+
+3. Create a folder for your project
+
+4. Copy over all files from `puck-configs/react-email` into your project folder
+
+5. Update `package.json` with your own information:
+   ```json
+   {
+     "name": "puck-configs", // Replace with your project name
+     "version": "1.0.0" // Replace with your project version
+     // ...rest of the package.json
+   }
+   ```
+
+6. Install the project:
+   ```sh
+   pnpm install
+   ```
+
+7. Run it:
+   ```sh
+   pnpm dev
+   ```

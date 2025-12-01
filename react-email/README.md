@@ -34,7 +34,7 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
      "compilerOptions": {
        "baseUrl": ".",
        "paths": {
-         "@/puck": ["./puck"]
+         "@/puck*": ["./puck*"]
        }
      }
    }

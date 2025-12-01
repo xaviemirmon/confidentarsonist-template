@@ -28,19 +28,19 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
    ```json
    {
      "compilerOptions": {
-       "plugins": [{ "name": "next" }],
        "baseUrl": ".",
        "paths": {
-         "@/puck": ["./puck"]
+         "@/puck*": ["./puck*"]
        }
      }
    }
    ```
 
-4. Copy shared components, context, and utilities into your project:
+4. Copy shared components, context, field configs, and utilities into your project:
    - `puck-configs/shadcn-twblocks/puck/components` → `your-project/puck/components`
    - `puck-configs/shadcn-twblocks/puck/context` → `your-project/puck/context`
    - `puck-configs/shadcn-twblocks/puck/lib` → `your-project/puck/lib`
+   - `puck-configs/shadcn-twblocks/puck/config/fields` → `your-project/puck/config/fields`
 
 5. Copy the `shadcn` components:
    - `puck-configs/shadcn-twblocks/components/ui` → `your-project/components/ui`

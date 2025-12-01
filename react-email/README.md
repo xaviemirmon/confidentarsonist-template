@@ -32,7 +32,6 @@ Below are the steps for doing this while preserving the `./puck/` folder structu
    ```json
    {
      "compilerOptions": {
-       "plugins": [{ "name": "next" }],
        "baseUrl": ".",
        "paths": {
          "@/puck": ["./puck"]

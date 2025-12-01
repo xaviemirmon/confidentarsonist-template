@@ -10,7 +10,7 @@ const createSummaryFunc: CreateSummaryFunc = (
   maxLength = 12,
 ) => {
   return (item) => {
-    const res = getItemLabel(item);
+    const res = getItemLabel(item) || "";
 
     return (
       `${res.slice(0, maxLength)}${res.length > maxLength ? "..." : ""}` ||

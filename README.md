@@ -1,50 +1,110 @@
-## What is this?
+# `shadcn` Integration Reference
 
-This repository serves as a reference for integrating Puck and Puck AI with component libraries.
+This application showcases how to integrate `shadcn` with Puck and Puck AI to build a page builder. It was bootstrapped with our [Next.js recipe](https://github.com/puckeditor/puck/tree/main/recipes/next), and all Puck component integration-related code lives under the `./puck` directory.
 
 You can use it to:
 
-- Get ready-to-use Puck component configs for your project
+- Get ready-to-use `shadcn` Puck component configs for your project
 - Understand how to integrate your own components
 - Bootstrap a new project from scratch
 
-We currently have references for the following component libraries:
-
-- [shadcn](https://github.com/FedericoBonel/puck-configs/tree/main/shadcn-twblocks)
-- [React Email](https://github.com/FedericoBonel/puck-configs/tree/main/react-email)
-
 ## Quick Start
 
-1. Install the component library you want in your project.
+### Using the `shadcn` Puck Component Configs
 
-2. Clone the repository:
+You're free to copy any components you need into your project however you like. Just make sure to bring in any required dependencies and update import paths based on where you paste the files.
 
+Below are the steps for doing this while preserving the `./puck/` folder structure.
+
+1. Clone this repository:
    ```sh
-   git clone {link}
+   git clone {link to repo}
    ```
 
-3. Copy or move any folders/files you need into your project.
+2. [Install shadcn](https://ui.shadcn.com/docs/installation) in your project.
 
-### Folder Structure
+3. Set up a `@/puck` import alias in your `tsconfig.json`:  
+   (You may need additional steps depending on your bundler)
+   ```json
+   {
+     "compilerOptions": {
+       "baseUrl": ".",
+       "paths": {
+         "@/puck*": ["./puck*"]
+       }
+     }
+   }
+   ```
 
-Each component library has its own subfolder. Inside, you'll find a basic app bootstrapped with our [Next.js recipe](https://github.com/puckeditor/puck/tree/main/recipes/next).
+4. Copy shared components, context, field configs, and utilities into your project:
+   - `puck-configs/shadcn-twblocks/puck/components` → `your-project/puck/components`
+   - `puck-configs/shadcn-twblocks/puck/context` → `your-project/puck/context`
+   - `puck-configs/shadcn-twblocks/puck/lib` → `your-project/puck/lib`
+   - `puck-configs/shadcn-twblocks/puck/config/fields` → `your-project/puck/config/fields`
+   - `puck-configs/shadcn-twblocks/puck/config/types.ts` → `your-project/puck/config/types.ts`
 
-All Puck component integration-related code lives under the `./puck` directory.
+5. Copy the `shadcn` components and hooks:
+   - `puck-configs/shadcn-twblocks/components/ui` → `your-project/components/ui`
+   - `puck-configs/shadcn-twblocks/hooks/` → `your-project/hooks`
 
-#### Puck Configs
+6. Install `shadcn` dependencies:
+   ```sh
+   npm install @radix-ui/react-accordion @radix-ui/react-avatar @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-navigation-menu @radix-ui/react-popover @radix-ui/react-slot motion embla-carousel-react react-error-boundary
+   ```
 
-- Main [Puck config](https://puckeditor.com/docs/api-reference/configuration/config): `./puck/index.tsx`
-- [Component configs](https://puckeditor.com/docs/api-reference/configuration/component-config): `./puck/config/components`
-- [Root config](https://puckeditor.com/docs/integrating-puck/root-configuration): `./puck/config/root/index.tsx`
-- [Reusable field configs](https://puckeditor.com/docs/api-reference/fields): `./puck/config/fields`
+6. Copy any Puck component config you want to use:
+   - Example: copying the Header component  
+     `puck-configs/shadcn-twblocks/puck/config/components/header` → `your-project/puck/config/components/header`
 
-#### Utilities
+7. Use it in your Puck config:
+   ```tsx
+   import { Puck } from "@measured/puck";
+   import { EditorModeProvider } from "@/puck/context";
+   import Header from "@/puck/config/components/header";
 
-- Shared components (e.g., heading, link, button): `./puck/components`
-- Shared constants (e.g., theme palette, numbers): `./puck/constants`
-- Shared helpers (e.g., `getItemSummary`, `add`): `./puck/lib`
+   const config = {
+     components: {
+       Header,
+     },
+   };
 
-For detailed steps on how to reuse the Puck config, component configs, or other parts of the codebase, check out the subfolders for each component library:
+   const Editor = () => {
+     return (
+       <EditorModeProvider isEditor>
+         <Puck data={{}} config={config} />
+       </EditorModeProvider>
+     );
+   };
+   ```
 
-- [shadcn](https://github.com/FedericoBonel/puck-configs/tree/main/shadcn-twblocks)
-- [React Email](https://github.com/FedericoBonel/puck-configs/tree/main/react-email)
+### Bootstrapping a New Project with `shadcn`
+
+1. Clone this repository:
+   ```sh
+   git clone {link to repo}
+   ```
+
+2. [Install pnpm](https://pnpm.io/installation#using-npm)
+
+3. Create a folder for your project.
+
+4. Copy over all files from `puck-configs/shadcn-twblocks` into your project folder.
+
+5. Update `package.json` with your own information:
+   ```json
+   {
+     "name": "puck-configs", // Replace with your project name
+     "version": "1.0.0" // Replace with your project version
+     // ...rest of the package.json
+   }
+   ```
+
+6. Install the project:
+   ```sh
+   pnpm install
+   ```
+
+7. Run it:
+   ```sh
+   pnpm dev
+   ```

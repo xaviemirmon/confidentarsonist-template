@@ -1,11 +1,12 @@
 import { Data } from "@measured/puck";
-import fs from "fs";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 // Replace with call to your database
-export const getPage = (path: string) => {
-  const allData: Record<string, Data> | null = fs.existsSync("database.json")
-    ? JSON.parse(fs.readFileSync("database.json", "utf-8"))
-    : null;
+export const getPage = async (path: string) => {
+  const myKv = (await getCloudflareContext({ async: true })).env.DATABASE;
+  const page = (await myKv.get(path)) as unknown as Data;
 
-  return allData ? allData[path] : null;
+  console.log(page);
+
+  return page ? page : null;
 };

@@ -1,22 +1,13 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
-import fs from "fs";
+
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 export async function POST(request: Request) {
-  const payload = await request.json();
+  const payload: { path: string; data: any } = await request.json();
+  const myKv = (await getCloudflareContext({ async: true })).env.DATABASE;
 
-  const existingData = JSON.parse(
-    fs.existsSync("database.json")
-      ? fs.readFileSync("database.json", "utf-8")
-      : "{}",
-  );
-
-  const updatedData = {
-    ...existingData,
-    [payload.path]: payload.data,
-  };
-
-  fs.writeFileSync("database.json", JSON.stringify(updatedData));
+  await myKv.put(payload.path, JSON.stringify(payload.data));
 
   // Purge Next.js cache
   revalidatePath(payload.path);

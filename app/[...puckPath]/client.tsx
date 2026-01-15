@@ -5,5 +5,6 @@ import { Render } from "@measured/puck";
 import config from "../../puck";
 
 export function Client({ data }: { data: Data }) {
+  console.log(data);
   return <Render config={config} data={data} />;
 }
